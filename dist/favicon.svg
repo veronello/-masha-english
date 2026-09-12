@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#408d4e"/><text x="24" y="34" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="36" fill="white">m</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <rect width="48" height="48" rx="12" fill="#408d4e"/>
+  <path d="M12 33 15 14 24 23 33 14 36 33" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#fff">
+    <circle cx="19.5" cy="31" r="2.25"/>
+    <circle cx="28.5" cy="31" r="2.25"/>
+  </g>
+</svg>
