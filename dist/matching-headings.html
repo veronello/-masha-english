@@ -10,6 +10,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>
 .matching-exercise{color:#222}.matching-exercise h2{margin:0 0 20px}.headings-list{padding-left:28px;margin:28px 0 40px}.headings-list li{padding-left:6px;margin-bottom:10px}.reading-passages section{margin-bottom:30px}.reading-passages h3{color:var(--green);font-size:22px;margin:0 0 8px}.reading-passages p{margin:0}.answer-reveal{margin-top:30px}.answer-reveal summary{display:inline-block;cursor:pointer;list-style:none;background:white;color:var(--green);border:2px solid var(--green);border-radius:999px;padding:10px 25px;font-weight:700}.answer-reveal summary::-webkit-details-marker{display:none}.answer-reveal summary:hover{background:#f0f7f1}.answer-reveal summary:focus-visible{outline:3px solid var(--green);outline-offset:4px}.answer-reveal p{margin:20px 0 0}
+.exercise-picker{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:36px;color:#222}.exercise-picker select{background:white;color:#222;border:1px solid #cbd8ce;border-radius:8px;padding:10px 12px;min-width:0;width:100%;max-width:500px}.exercise-picker select:focus-visible{outline:3px solid var(--green);outline-offset:4px}[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -25,9 +26,16 @@
 <main id="main"><section class="lesson-page" aria-labelledby="page-title">
 <h1 id="page-title">Matching Headings</h1>
 <div class="lesson-content">
+<div class="exercise-picker">
+<label for="exercise-choice">Choose an exercise</label>
+<select id="exercise-choice">
+<option value="exercise-1">Exercise 1: The History of Everyday Things</option>
+<option value="random">Random</option>
+</select>
+</div>
 <!-- Добавь своё задание или текст ниже этой строки. -->
-<section class="matching-exercise" aria-labelledby="exercise-1-title">
-<h2 id="exercise-1-title">Exercise 1</h2>
+<section class="matching-exercise" data-exercise="exercise-1" aria-labelledby="exercise-1-title">
+<h2 id="exercise-1-title">Exercise 1: The History of Everyday Things</h2>
 <p>Match the headings A–G with paragraphs 1–5. There are two extra headings. Use each heading only once.</p>
 <ol class="headings-list" type="A">
 <li>An accident that changed the way we cook</li>
@@ -54,5 +62,24 @@
 <!-- Конец содержимого раздела. -->
 </div>
 </section></main>
+<script>
+const picker = document.getElementById('exercise-choice');
+const exercises = [...document.querySelectorAll('.matching-exercise[data-exercise]')];
+picker.replaceChildren(
+  ...exercises.map(exercise => new Option(exercise.querySelector('h2').textContent, exercise.dataset.exercise)),
+  new Option('Random', 'random')
+);
+function showExercise(value) {
+  const chosen = value === 'random'
+    ? exercises[Math.floor(Math.random() * exercises.length)].dataset.exercise
+    : value;
+  exercises.forEach(exercise => {
+    exercise.hidden = exercise.dataset.exercise !== chosen;
+    exercise.querySelectorAll('details').forEach(answer => answer.open = false);
+  });
+}
+picker.addEventListener('change', () => showExercise(picker.value));
+showExercise(picker.value);
+</script>
 </body>
 </html>
