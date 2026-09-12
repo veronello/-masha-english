@@ -11,7 +11,7 @@
 <style>
 .joke-section{color:#222;margin-bottom:48px}.joke-section h2{margin:0 0 22px}.joke-section ol{padding-left:28px}.joke-section li{padding-left:6px;margin-bottom:18px}.joke-section p{margin:0 0 26px}.dad-screenshot{position:relative;width:100%;max-width:598px;aspect-ratio:598/520;overflow:hidden}.dad-screenshot img{position:absolute;width:138.46154%;max-width:none;height:auto;left:-8.86288%;top:-36.15385%}
 .stuff-menu{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0 0 32px;border-bottom:1px solid var(--line);padding-bottom:10px}.stuff-menu button{background:none;border:0;border-bottom:3px solid transparent;border-radius:0;padding:10px 0;color:#222;cursor:pointer;line-height:1.4}.stuff-menu button[aria-pressed="true"]{color:var(--green);border-bottom-color:var(--green);font-weight:700}.stuff-menu button:hover{color:var(--green)}.stuff-menu button:focus-visible{outline:3px solid var(--green);outline-offset:4px}[hidden]{display:none!important}
-.funny-gallery{display:grid;gap:32px;max-width:700px}.funny-gallery img{display:block;width:100%;height:auto}
+.funny-gallery{display:grid;gap:64px;max-width:700px}.funny-gallery img{display:block;width:100%;height:auto;padding:12px;border:2px solid #bdcdd8;border-radius:12px;background:#f0f4f7}
 </style>
 </head>
 <body>
@@ -60,6 +60,7 @@
 
 <section class="joke-section" id="pics-collection" aria-labelledby="pics-title" hidden>
 <h2 id="pics-title">Some funny pics</h2>
+<!-- Все следующие картинки добавляй внутрь funny-gallery: рамка и расстояние применятся автоматически. -->
 <div class="funny-gallery">
 <img src="assets/coffee-or-tea.jpeg" width="1122" height="1402" loading="lazy" alt="A flight attendant asks: Coffee or tea? The passenger says: Coffee. The attendant replies: Wrong. It’s tea!">
 <img src="assets/sheep-comic.jpeg" width="1170" height="1506" loading="lazy" alt="Comic by The Jenkins Comic: three sheep in a trenchcoat ask for an adult ticket. The attendant counts the sheep and falls asleep.">
