@@ -8,6 +8,9 @@
 <title>Word Formation · Masha’s English</title>
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+.word-formation{color:#222}.word-picker{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:36px}.word-picker select{background:white;color:#222;border:1px solid #cbd8ce;border-radius:8px;padding:10px 36px 10px 12px;min-width:170px}.word-exercise h2{color:var(--green);font-size:30px;margin:0 0 16px}.word-exercise p{margin:0 0 22px}.sentences{padding-left:28px}.sentences li{padding-left:6px;margin-bottom:17px}.answer-reveal{margin-top:30px}.answer-reveal summary{display:inline-block;cursor:pointer;list-style:none;background:white;color:var(--green);border:2px solid var(--green);border-radius:999px;padding:10px 25px;font-weight:700}.answer-reveal summary::-webkit-details-marker{display:none}.answer-reveal summary:hover{background:#f0f7f1}.answer-reveal summary:focus-visible,.word-picker select:focus-visible{outline:3px solid var(--green);outline-offset:4px}.answers{padding:20px 0 0 28px;margin:0}.answers li{padding-left:6px;margin-bottom:6px}[hidden]{display:none!important}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -21,11 +24,50 @@
 </header>
 <main id="main"><section class="lesson-page" aria-labelledby="page-title">
 <h1 id="page-title">Word Formation</h1>
-<div class="lesson-content">
-<!-- Добавь своё задание или текст ниже этой строки. -->
-
-<!-- Конец содержимого раздела. -->
+<div class="lesson-content word-formation">
+<div class="word-picker">
+<label for="word-choice">Choose a word</label>
+<select id="word-choice"><option value="develop">develop</option><option value="random">Random</option></select>
+</div>
+<section class="word-exercise" data-word="develop" aria-labelledby="develop-title">
+<h2 id="develop-title">DEVELOP</h2>
+<p>Complete each sentence with the correct form of the word DEVELOP.</p>
+<ol class="sentences">
+<li>Personal __________ is very important.</li>
+<li>I would like to become a __________ in the IT field.</li>
+<li>Germany is a __________ country.</li>
+<li>There are many __________ countries in Africa.</li>
+<li>This illness __________ because of the bad habit of smoking.</li>
+<li>His social skills are completely __________.</li>
+</ol>
+<details class="answer-reveal">
+<summary>View Answers</summary>
+<ol class="answers">
+<li>development</li>
+<li>developer</li>
+<li>developed</li>
+<li>developing</li>
+<li>developed</li>
+<li>undeveloped</li>
+</ol>
+</details>
+</section>
+<!-- Новые упражнения добавляй как section.word-exercise с уникальным data-word. -->
 </div>
 </section></main>
+<script>
+const picker = document.getElementById('word-choice');
+const exercises = [...document.querySelectorAll('.word-exercise')].sort((a,b) => a.dataset.word.localeCompare(b.dataset.word, 'en'));
+picker.replaceChildren(...exercises.map(exercise => new Option(exercise.dataset.word, exercise.dataset.word)), new Option('Random', 'random'));
+function showWord(word) {
+  const chosen = word === 'random' ? exercises[Math.floor(Math.random() * exercises.length)].dataset.word : word;
+  exercises.forEach(exercise => {
+    exercise.hidden = exercise.dataset.word !== chosen;
+    exercise.querySelectorAll('details').forEach(answer => answer.open = false);
+  });
+}
+picker.addEventListener('change', () => showWord(picker.value));
+showWord(picker.value);
+</script>
 </body>
 </html>
