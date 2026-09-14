@@ -1,68 +1,68 @@
 # Masha’s English
 
-Простой мотивационный сайт для изучения английского: короткие упражнения, чтение, грамматика в контексте, шутки и картинки. Материалы постепенно пополняются. Белый фон, зелёные акценты и адаптация для телефона помогают сосредоточиться на содержании.
+A simple website designed to make learning English approachable and motivating, with short exercises, reading activities, grammar in context, jokes, and pictures. New materials are added gradually. A white background, green accents, and a mobile-friendly layout keep the focus on the content.
 
-**[Открыть сайт](https://veronello.github.io/-masha-english/)**
+**[Visit the website](https://veronello.github.io/-masha-english/)**
 
-## Что уже есть на сайте
+## What’s on the website
 
-| Раздел | Содержимое |
+| Section | Content |
 | --- | --- |
-| Home | Приветствие, иллюстрация и кнопка перехода к упражнениям. |
-| Matching Headings | Exercise 1: The History of Everyday Things — пять текстов об изобретениях, семь заголовков на выбор и скрытые ответы. |
-| Word Formation | Упражнения на DEVELOP, EMPLOY и HELP: всего 17 предложений с ответами. |
-| Grammar in Context | Comparative Adjectives — Mauritania: связный текст с пятью пропусками, вариантами A–C и ответами. |
-| Random Stuff | Chuck Norris Jokes, Blonde Jokes, Dad Jokes и Some funny pics. |
+| Home | A welcome message, an illustration, and a button leading to the exercises. |
+| Matching Headings | Exercise 1: The History of Everyday Things — five texts about inventions, seven headings to choose from, and answers that can be revealed. |
+| Word Formation | Exercises on DEVELOP, EMPLOY, and HELP: 17 sentences in total, with answers. |
+| Grammar in Context | Comparative Adjectives — Mauritania: a continuous reading passage with five gaps, A–C answer choices, and an answer key. |
+| Random Stuff | Chuck Norris Jokes, Blonde Jokes, Dad Jokes, and Some funny pics. |
 
-В трёх учебных разделах есть выпадающие списки и пункт **Random** для случайного выбора одного из доступных заданий. В Word Formation слова расположены по алфавиту. Ответы открываются кнопкой **View Answers**.
+Each of the three learning sections has a dropdown menu and a **Random** option for choosing an available exercise at random. Words in Word Formation are listed alphabetically. Answers are revealed using the **View Answers** button.
 
-В Random Stuff подборки переключаются через подменю. В Some funny pics уже добавлены две картинки; каждая показана в отдельной серо-голубой рамке с увеличенным расстоянием между изображениями.
+Random Stuff uses a submenu to switch between collections. Some funny pics currently contains two images, each displayed in a separate blue-grey frame with generous spacing between them.
 
-## Как добавить материалы
+## Adding content
 
-Открой нужный HTML-файл в папке `dist/`. Существующие задания можно использовать как образец.
+Open the relevant HTML file in the `dist/` folder. Use the existing exercises as examples.
 
-| Раздел | Файл | Как пополнять |
+| Section | File | How to add content |
 | --- | --- | --- |
-| Главная | `dist/index.html` | Редактировать приветствие и ссылки. |
-| Matching Headings | `dist/matching-headings.html` | Добавить `section.matching-exercise` с уникальным `data-exercise` и заголовком `h2`. |
-| Word Formation | `dist/word-formation.html` | Добавить `section.word-exercise` с уникальным `data-word`. |
-| Grammar in Context | `dist/grammar-in-context.html` | Добавить `section.grammar-exercise` с уникальным `data-topic` и названием в `data-label`. |
-| Random Stuff | `dist/random-stuff.html` | Добавить шутки в соответствующую подборку, картинки — внутрь `div.funny-gallery`. |
+| Home | `dist/index.html` | Edit the welcome message and links. |
+| Matching Headings | `dist/matching-headings.html` | Add a `section.matching-exercise` with a unique `data-exercise` value and an `h2` heading. |
+| Word Formation | `dist/word-formation.html` | Add a `section.word-exercise` with a unique `data-word` value. |
+| Grammar in Context | `dist/grammar-in-context.html` | Add a `section.grammar-exercise` with a unique `data-topic` value and a title in `data-label`. |
+| Random Stuff | `dist/random-stuff.html` | Add jokes to the relevant collection and images inside `div.funny-gallery`. |
 
-Новые учебные задания автоматически включаются в соответствующий список и Random. При копировании задания нужно также менять его HTML-идентификаторы `id` и связанные ссылки `aria-labelledby`, чтобы они оставались уникальными.
+New learning activities are automatically included in the relevant dropdown and Random selection. When copying an exercise, also update its HTML `id` attributes and the corresponding `aria-labelledby` references so that the IDs remain unique.
 
-Изображения хранятся в `dist/assets/`. Для новой картинки добавь тег `img` с путём к файлу и описанием в `alt`; рамка и расстояние в галерее применятся автоматически. Пропорции изображения сохраняются.
+Images are stored in `dist/assets/`. To add a picture, insert an `img` tag with the file path and a description in `alt`. Gallery frames and spacing are applied automatically, and image proportions are preserved.
 
-## Устройство сайта
+## How the site works
 
-Сайт написан на HTML, CSS и JavaScript. Сборка и установка зависимостей не нужны: можно скачать репозиторий и открыть `dist/index.html` в браузере.
+The site uses HTML, CSS, and JavaScript. No build step or dependency installation is required: download the repository and open `dist/index.html` in a browser.
 
-- `dist/style.css` — общее оформление и адаптация для телефона; отдельные стили разделов находятся в HTML-файлах.
-- `dist/assets/reference.webp` — исходный макет: CSS показывает области логотипа и иллюстрации. Приветствие и меню — редактируемый HTML.
-- `dist/favicon.svg` — значок вкладки: белая буква m с кошачьими ушками и глазками.
-- `dist/manifest.webmanifest` и `dist/icons/` — название, отдельное окно и значки онлайн-PWA.
-- `dist/online-app.js` — проверка обновлений при запуске PWA, возвращении из фона и восстановлении связи.
-- `dist/about.html` — перенаправление на главную: прежний пустой About объединён с Home.
-- `index.html` в корне — переход на `dist/index.html`.
-- `.nojekyll` — файл для публикации статического сайта без обработки Jekyll.
+- `dist/style.css` — shared styles and responsive layout; section-specific styles are included in the HTML files.
+- `dist/assets/reference.webp` — the original mockup: CSS displays the logo and illustration areas. The welcome message and navigation are editable HTML.
+- `dist/favicon.svg` — the browser tab icon: a white letter “m” with cat ears and eyes.
+- `dist/manifest.webmanifest` and `dist/icons/` — the name, standalone display settings, and icons for the online PWA.
+- `dist/online-app.js` — checks for updates when the PWA starts, returns from the background, or regains connectivity.
+- `dist/about.html` — redirects to the homepage; the previously empty About page has been merged into Home.
+- The root `index.html` — redirects to `dist/index.html`.
+- `.nojekyll` — enables static publishing without Jekyll processing.
 
-Главное меню повторяется в HTML-файлах разделов: изменения названий и ссылок нужно вносить во все эти страницы.
+The main navigation is repeated in the section HTML files. Changes to navigation labels and links should be applied to all of these pages.
 
-## Публикация
+## Publishing
 
-Сайт опубликован через **GitHub Pages** из ветки `main`, папки `/ (root)`.
+The site is hosted on **GitHub Pages**, using the `main` branch and the `/ (root)` folder.
 
-После сохранения изменений в `main` GitHub Pages обновляет сайт автоматически. Публикация может занять несколько минут; её состояние можно посмотреть во вкладке Actions репозитория.
+Changes saved to `main` are published automatically by GitHub Pages. Deployment may take a few minutes; check its status in the repository’s Actions tab.
 
-**[Сайт для Маши](https://veronello.github.io/-masha-english/)** · **[Репозиторий](https://github.com/veronello/-masha-english)**
+**[Live website](https://veronello.github.io/-masha-english/)** · **[Repository](https://github.com/veronello/-masha-english)**
 
-## Значок на экране телефона
+## Adding the site to your phone’s home screen
 
-Сайт можно добавить на главный экран: на iPhone открой его в Safari, выбери «Поделиться» → «На экран Домой» и включи «Открывать как веб-приложение», если такой переключатель отображается. На Android используй пункт установки/добавления на главный экран в меню браузера. Название команды зависит от браузера.
+On iPhone, open the site in Safari, choose **Share → Add to Home Screen**, and enable **Open as Web App** if that toggle is shown. On Android, use the install or add-to-home-screen option in your browser’s menu. The exact wording depends on the browser.
 
-Онлайн-PWA открывается отдельным окном со значком котика. Service worker, офлайн-хранилище и сохранение ответов не добавлены; для загрузки материалов нужен интернет. Обычный HTTP-кэш браузера сохраняется.
+The online PWA opens in a standalone window with the cat icon. It does not include a service worker, offline storage, or saved answers; an internet connection is required to load content. Normal browser HTTP caching still applies.
 
-При запуске и возвращении в PWA скрипт сверяет дату опубликованной страницы с датой открытого документа через заголовок Last-Modified, который выдаёт GitHub Pages. При более свежей публикации страница автоматически перезагружается; новая дата вручную не задаётся. При ошибке сети открытая страница остаётся на месте. Если другой хост не выдаёт дату, используется однократная перезагрузка без цикла. Обновления становятся доступны после завершения публикации и распространения через CDN.
+When the PWA starts or returns to the foreground, the script compares the published page’s date with the date of the open document using the Last-Modified header provided by GitHub Pages. If a newer version is available, the page reloads automatically; no manual date update is needed. If a network error occurs, the current page stays open. If another host does not provide a date, a one-time reload is used without a reload loop. Updates become available after deployment completes and the changes propagate through the CDN.
 
-Новые фотографии сохраняй под новыми именами файлов. При замене картинки, CSS или JS под прежним именем меняй версию в URL (например, `style.css?v=2`), чтобы обычный HTTP-кэш не задерживал обновление ресурса. Новые HTML-страницы должны содержать те же ссылки на manifest, apple-touch-icon и online-app.js, что и существующие разделы.
+Save new photos with new filenames. When replacing an image, CSS file, or JavaScript file under the same name, change the version in its URL (for example, `style.css?v=2`) so that normal HTTP caching does not delay the update. New HTML pages should include the same links to the manifest, apple-touch-icon, and online-app.js as the existing sections.
