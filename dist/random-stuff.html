@@ -19,6 +19,7 @@
 .stuff-menu{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0 0 32px;border-bottom:1px solid var(--line);padding-bottom:10px}.stuff-menu button{background:none;border:0;border-bottom:3px solid transparent;border-radius:0;padding:10px 0;color:#222;cursor:pointer;line-height:1.4}.stuff-menu button[aria-pressed="true"]{color:var(--green);border-bottom-color:var(--green);font-weight:700}.stuff-menu button:hover{color:var(--green)}.stuff-menu button:focus-visible{outline:3px solid var(--green);outline-offset:4px}[hidden]{display:none!important}
 .funny-gallery{display:grid;gap:64px;max-width:700px}.funny-gallery img{display:block;width:100%;height:auto;padding:12px;border:2px solid #bdcdd8;border-radius:12px;background:#f0f4f7}
 .lesson-page .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.joke-section .star-list{list-style:none;padding-left:0}.joke-section .star-list li{position:relative;padding-left:34px}.star-list .joke-star{position:absolute;left:0;top:0;color:#e8b520}
 </style>
 </head>
 <body>
@@ -43,16 +44,16 @@
 <!-- Добавь своё задание или текст ниже этой строки. -->
 <section class="joke-section" id="chuck-collection" aria-labelledby="chuck-title">
 <h2 id="chuck-title">Chuck Norris Jokes</h2>
-<ol><li>If you have five dollars and Chuck Norris has five dollars, Chuck Norris has more money than you.</li>
-<li>Chuck Norris can kill two stones with one bird.</li>
-<li>Chuck Norris can speak Chinese. In Russian.</li>
-<li>When Chuck Norris cuts onions, onions cry.</li>
-<li>Chuck Norris built the house he was born in.</li>
-<li>Chuck Norris uses pepper spray to season his meat.</li>
-<li>Chuck Norris can’t turn left because he’s always right.</li>
-<li>Chuck Norris can close a revolving door.</li>
-<li>How many push-ups can Chuck Norris do? All of them.</li>
-<li>Chuck Norris can build a snowman out of rain.</li></ol>
+<ul class="star-list" role="list"><li><span class="joke-star" aria-hidden="true">★</span>If you have five dollars and Chuck Norris has five dollars, Chuck Norris has more money than you.</li>
+<li><span class="joke-star" aria-hidden="true">★</span>Chuck Norris can kill two stones with one bird.</li>
+<li><span class="joke-star" aria-hidden="true">★</span>Chuck Norris can speak Chinese. In Russian.</li>
+<li><span class="joke-star" aria-hidden="true">★</span>When Chuck Norris cuts onions, onions cry.</li>
+<li><span class="joke-star" aria-hidden="true">★</span>Chuck Norris built the house he was born in.</li>
+<li><span class="joke-star" aria-hidden="true">★</span>Chuck Norris uses pepper spray to season his meat.</li>
+<li><span class="joke-star" aria-hidden="true">★</span>Chuck Norris can’t turn left because he’s always right.</li>
+<li><span class="joke-star" aria-hidden="true">★</span>Chuck Norris can close a revolving door.</li>
+<li><span class="joke-star" aria-hidden="true">★</span>How many push-ups can Chuck Norris do? All of them.</li>
+<li><span class="joke-star" aria-hidden="true">★</span>Chuck Norris can build a snowman out of rain.</li></ul>
 </section>
 <section class="joke-section" id="blond-collection" aria-labelledby="blond-title" hidden>
 <h2 id="blond-title">Blonde Jokes</h2>
