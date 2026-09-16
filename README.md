@@ -16,7 +16,7 @@ A simple website designed to make learning English approachable and motivating, 
 
 Each of the three learning sections has a dropdown menu and a **Random** option for choosing an available exercise at random. Words in Word Formation are listed alphabetically. Answers are revealed using the **View Answers** button.
 
-Random Stuff uses a submenu to switch between collections. Some funny pics currently contains two images, each displayed in a separate blue-grey frame with generous spacing between them.
+Random Stuff uses a submenu to switch between collections. Some funny pics currently contains five images, each displayed in a separate blue-grey frame with generous spacing between them.
 
 ## Adding content
 
