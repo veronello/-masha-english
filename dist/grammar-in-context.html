@@ -120,6 +120,7 @@ function showTopic(value) {
   const chosen = value === 'random'
     ? exercises[Math.floor(Math.random() * exercises.length)].dataset.topic
     : value;
+  picker.value = chosen;
   exercises.forEach(exercise => {
     exercise.hidden = exercise.dataset.topic !== chosen;
     exercise.querySelectorAll('details').forEach(answer => answer.open = false);
